@@ -48,70 +48,97 @@ ventas     (1) ────< (N) detalle_venta >──── (N) videojuegos
 
 ## 🗄️ Script SQL
 CREATE DATABASE IF NOT EXISTS GameStoreBD;
-
+ 
 USE GameStoreBD;
-
-CREATE TABLE usuarios (
-    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
+CREATE TABLE Persona (
+    id_persona INT AUTO_INCREMENT PRIMARY KEY,
+    nombres VARCHAR(100) NOT NULL,
+    apellidos VARCHAR(100) NOT NULL,
+    correo VARCHAR(150) NOT NULL UNIQUE,
     usuario VARCHAR(50) NOT NULL UNIQUE,
     contrasena VARCHAR(255) NOT NULL
 );
-
-CREATE TABLE videojuegos (
+CREATE TABLE Genero (
+    id_genero INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL UNIQUE
+);
+CREATE TABLE Plataforma (
+    id_plataforma INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL UNIQUE
+);
+CREATE TABLE Videojuego (
     id_videojuego INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    genero VARCHAR(50) NOT NULL,
-    plataforma VARCHAR(50) NOT NULL,
+    nombre VARCHAR(150) NOT NULL,
     precio DECIMAL(10,2) NOT NULL,
-    stock INT NOT NULL DEFAULT 0
+    stock INT NOT NULL,
+    id_genero INT NOT NULL,
+    id_plataforma INT NOT NULL,
+ 
+    CONSTRAINT fk_videojuego_genero
+        FOREIGN KEY (id_genero)
+        REFERENCES Genero(id_genero),
+ 
+    CONSTRAINT fk_videojuego_plataforma
+        FOREIGN KEY (id_plataforma)
+        REFERENCES Plataforma(id_plataforma)
 );
-
-CREATE TABLE ventas (
+CREATE TABLE Venta (
     id_venta INT AUTO_INCREMENT PRIMARY KEY,
-    fecha DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    id_usuario INT NOT NULL,
-
-    CONSTRAINT fk_venta_usuario
-        FOREIGN KEY (id_usuario)
-        REFERENCES usuarios(id_usuario)
+    id_persona INT NOT NULL,
+    fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+    total DECIMAL(10,2) NOT NULL,
+ 
+    CONSTRAINT fk_venta_persona
+        FOREIGN KEY (id_persona)
+        REFERENCES Persona(id_persona)
 );
-
-CREATE TABLE detalle_venta (
+CREATE TABLE DetalleVenta (
     id_detalle INT AUTO_INCREMENT PRIMARY KEY,
     id_venta INT NOT NULL,
     id_videojuego INT NOT NULL,
     cantidad INT NOT NULL,
-    precio_unitario DECIMAL(10,2) NOT NULL,
-
+    precio DECIMAL(10,2) NOT NULL,
+ 
     CONSTRAINT fk_detalle_venta
         FOREIGN KEY (id_venta)
-        REFERENCES ventas(id_venta),
-
+        REFERENCES Venta(id_venta),
+ 
     CONSTRAINT fk_detalle_videojuego
         FOREIGN KEY (id_videojuego)
-        REFERENCES videojuegos(id_videojuego)
+        REFERENCES Videojuego(id_videojuego)
 );
-
-INSERT INTO usuarios (nombre, usuario, contrasena)
+INSERT INTO Genero (nombre) VALUES
+('Acción'),
+('Aventura'),
+('RPG'),
+('Terror'),
+('Shooter'),
+('Deportes'),
+('Sandbox');
+INSERT INTO Plataforma (nombre) VALUES
+('PC'),
+('PlayStation 5'),
+('Xbox Series X/S'),
+('Nintendo Switch');
+INSERT INTO Videojuego
+(nombre, precio, stock, id_genero, id_plataforma)
 VALUES
-('Administrador', 'admin', '1234');
-
-INSERT INTO videojuegos
-(nombre, genero, plataforma, precio, stock)
+('Minecraft', 29.99, 15, 7, 1),
+('Resident Evil 4', 59.99, 8, 4, 2),
+('Grand Theft Auto V', 29.99, 10, 1, 1),
+('Elden Ring', 59.99, 7, 3, 1),
+('The Legend of Zelda: Tears of the Kingdom', 59.99, 5, 2, 4);
+SELECT * FROM Videojuego;
+ 
+/*USUARIO ADMINISTRADOR DE PRUEBA*/
+INSERT INTO Persona
+(nombres, apellidos, correo, usuario, contrasena)
 VALUES
-('Minecraft', 'Sandbox', 'PC', 29.99, 10),
-('Grand Theft Auto V', 'Acción', 'PC', 29.99, 8),
-('Resident Evil 4', 'Terror', 'PC', 39.99, 5),
-('EA Sports FC 26', 'Deportes', 'PC', 69.99, 6);
-
-SELECT * FROM usuarios;
-
-SELECT * FROM videojuegos;
-
-SELECT * FROM ventas;
-
-SELECT * FROM detalle_venta;
+('Administrador', 'GameStore', 'admin@gamestore.com', 'admin', '12345');
+SELECT * FROM Persona;
+USE GameStoreBD;
+ 
+SELECT * FROM Videojuego;
 
 ## 🛠️ Tecnologías utilizadas
 
