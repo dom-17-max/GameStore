@@ -1,12 +1,12 @@
-# 🎮 GameStore - Sistema de Gestión de Venta de Videojuegos
+# GameStore - Sistema de Gestión de Venta de Videojuegos
 
-## 📌 Contexto
+## Contexto
 
 **GameStore** es una aplicación de escritorio desarrollada en Java con conexión a una base de datos MySQL, orientada a resolver la gestión de una tienda dedicada a la venta de videojuegos físicos y digitales (títulos como *Minecraft*, *Resident Evil 4*, *Grand Theft Auto V*, *Elden Ring*, *The Legend Of Zelda: Tears of the Kindom*, entre otros).
 
 Actualmente, este tipo de negocios suele llevar el control de su catálogo, clientes y ventas de forma manual o en hojas de cálculo, lo que genera errores de registro, pérdida de información y dificultad para conocer el stock disponible o el historial de compras de un cliente. Esta aplicación busca centralizar esa información en una base de datos relacional, permitiendo un control confiable y eficiente del negocio.
 
-## 📋 Análisis de Requerimientos
+##  Análisis de Requerimientos
 
 ### Requerimientos funcionales
 - Registrar, editar, eliminar y consultar videojuegos del catálogo (nombre, plataforma, género, precio, stock).
@@ -22,8 +22,7 @@ Actualmente, este tipo de negocios suele llevar el control de su catálogo, clie
 - Conexión estable a una base de datos MySQL.
 - Persistencia de la información entre sesiones de uso.
 
-## 🗂️ Modelo Lógico
-
+## Modelo Lógico
 El sistema se estructura en cinco entidades principales relacionadas entre sí:
 
 ```
@@ -36,7 +35,7 @@ ventas     (1) ────< (N) detalle_venta >──── (N) videojuegos
 - Una **venta** puede incluir muchos **videojuegos** (a través de `detalle_venta`), y un mismo videojuego puede aparecer en muchas ventas.
 - Un **videojuego** pertenece a una **categoría** (acción, aventura, deportes, plataformas, etc.), pero una categoría agrupa muchos videojuegos.
 
-## 🧾 Descripción de Tablas
+##  Descripción de Tablas
 
 | Tabla | Descripción | Campos principales |
 |---|---|---|
@@ -46,7 +45,7 @@ ventas     (1) ────< (N) detalle_venta >──── (N) videojuegos
 | `ventas` | Cabecera de cada transacción de venta | `id_venta`, `fecha`, `id_cliente` (FK), `total` |
 | `detalle_venta` | Detalle de los videojuegos incluidos en cada venta | `id_detalle`, `id_venta` (FK), `id_videojuego` (FK), `cantidad`, `subtotal` |
 
-## 🗄️ Script SQL
+##  Script SQL
 CREATE DATABASE IF NOT EXISTS GameStoreBD;
  
 USE GameStoreBD;
@@ -143,7 +142,7 @@ USE GameStoreBD;
  
 SELECT * FROM Videojuego;
 
-## 🛠️ Tecnologías utilizadas
+##  Tecnologías utilizadas
 
 Para el desarrollo del sistema GameStore se utilizaron diferentes tecnologías y herramientas que permiten implementar la interfaz gráfica, la lógica del sistema y el almacenamiento de información.
 
@@ -172,5 +171,5 @@ El proyecto se organiza en diferentes paquetes para separar las responsabilidade
 Esta organización permite mantener separado el acceso a los datos, la lógica de las entidades y la interfaz gráfica, facilitando el mantenimiento y la modificación del sistema.
 
 
-## 👩‍💻 Autores
+##  Autores
 Domenika Aumala,Reyes,Contreras,Olivo,PINOARGOTTY,Espinoza Ronquillo— Proyecto ABP / Examen Quimestral, Programación y Desarrollo de Base de Datos.
