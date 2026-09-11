@@ -115,11 +115,13 @@ INSERT INTO Genero (nombre) VALUES
 ('Shooter'),
 ('Deportes'),
 ('Sandbox');
+
 INSERT INTO Plataforma (nombre) VALUES
 ('PC'),
 ('PlayStation 5'),
 ('Xbox Series X/S'),
 ('Nintendo Switch');
+
 INSERT INTO Videojuego
 (nombre, precio, stock, id_genero, id_plataforma)
 VALUES
@@ -128,6 +130,7 @@ VALUES
 ('Grand Theft Auto V', 29.99, 10, 1, 1),
 ('Elden Ring', 59.99, 7, 3, 1),
 ('The Legend of Zelda: Tears of the Kingdom', 59.99, 5, 2, 4);
+
 SELECT * FROM Videojuego;
  
 /*USUARIO ADMINISTRADOR DE PRUEBA*/
