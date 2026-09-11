@@ -1,8 +1,8 @@
-# 🎮 GameZone - Sistema de Gestión de Venta de Videojuegos
+# 🎮 GameStore - Sistema de Gestión de Venta de Videojuegos
 
 ## 📌 Contexto
 
-**GameZone** es una aplicación de escritorio desarrollada en Java con conexión a una base de datos MySQL, orientada a resolver la gestión de una tienda dedicada a la venta de videojuegos físicos y digitales (títulos como *League of Legends*, *Call of Duty*, *Fortnite*, *Minecraft*, *GTA VI*, *Super Mario*, *Mortal Kombat*, *Brawl Stars*, *Among Us*, *Poppy Playtime* y *Stumble Guys*, entre otros).
+**GameStore** es una aplicación de escritorio desarrollada en Java con conexión a una base de datos MySQL, orientada a resolver la gestión de una tienda dedicada a la venta de videojuegos físicos y digitales (títulos como *League of Legends*, *Call of Duty*, *Fortnite*, *Minecraft*, *GTA VI*, *Super Mario*, *Mortal Kombat*, *Brawl Stars*, *Among Us*, *Poppy Playtime* y *Stumble Guys*, entre otros).
 
 Actualmente, este tipo de negocios suele llevar el control de su catálogo, clientes y ventas de forma manual o en hojas de cálculo, lo que genera errores de registro, pérdida de información y dificultad para conocer el stock disponible o el historial de compras de un cliente. Esta aplicación busca centralizar esa información en una base de datos relacional, permitiendo un control confiable y eficiente del negocio.
 
