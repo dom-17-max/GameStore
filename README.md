@@ -112,14 +112,11 @@ INSERT INTO videojuegos (nombre, plataforma, precio, stock, id_categoria) VALUES
 ('Stumble Guys', 'Móvil', 0.00, 100, 6);
 ```
 
-## 🖼️ Catálogo (imágenes de referencia)
-
-Las portadas de los videojuegos utilizadas en la interfaz corresponden a los títulos registrados en el catálogo: League of Legends, Call of Duty, Fortnite, Minecraft, GTA VI, Super Mario, Mortal Kombat, Brawl Stars, Among Us, Poppy Playtime y Stumble Guys.
 
 ## 🛠️ Tecnologías utilizadas
 - Java (Swing / JFrame)
 - MySQL
 - JDBC (Java Database Connectivity)
 
-## 👩‍💻 Autor
-Domenika — Proyecto ABP / Examen Quimestral, Programación y Desarrollo de Base de Datos.
+## 👩‍💻 Autores
+Domenika Aumala,Reyes,Contreras,Olivo,PINOARGOTTY,Espinoza Ronquillo— Proyecto ABP / Examen Quimestral, Programación y Desarrollo de Base de Datos.
